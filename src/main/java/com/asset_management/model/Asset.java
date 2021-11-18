@@ -34,7 +34,7 @@ public class Asset {
 	private String conditionNotes;
 	private String assignmentStatus;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade =CascadeType.DETACH)
 	private Categories category;
 
 	public Asset() {

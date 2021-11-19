@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JacksonAnnotation;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -34,7 +35,7 @@ public class Asset {
 	private String conditionNotes;
 	private String assignmentStatus;
 	
-	@ManyToOne(cascade =CascadeType.DETACH)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Categories category;
 
 	public Asset() {

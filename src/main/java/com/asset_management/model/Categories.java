@@ -1,5 +1,6 @@
 package com.asset_management.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Categories {
@@ -21,7 +24,10 @@ public class Categories {
 	@Column(length = 500)
 	private String description;
 	
-	 
+//	@OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+//	@JsonBackReference
+//	 List<Asset> assets;
+//	 
 	public Categories() {
 		super();
 		 
@@ -32,6 +38,7 @@ public class Categories {
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		 
 	}
 
 	public long getId() {
@@ -58,11 +65,13 @@ public class Categories {
 		this.description = description;
 	}
 
+	 
+
 	@Override
 	public String toString() {
 		return "Categories [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
-	
-	
+
+	 
 	
 }
